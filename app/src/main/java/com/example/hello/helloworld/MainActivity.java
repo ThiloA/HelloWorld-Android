@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    public void sendMessage(View view) {
+    public void buttonClick(View view) {
         EditText editText = (EditText) findViewById(R.id.editText);
 
         AlertDialog ad = new AlertDialog.Builder(this).create();
