@@ -1,9 +1,13 @@
 package com.example.hello.helloworld;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,6 +24,21 @@ public class MainActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void sendMessage(View view) {
+        EditText editText = (EditText) findViewById(R.id.editText);
+
+        AlertDialog ad = new AlertDialog.Builder(this).create();
+        ad.setCancelable(false); // This blocks the 'BACK' button
+        ad.setMessage("Hallo "+editText.getText());
+        ad.setButton(AlertDialog.BUTTON_NEUTRAL,"OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        ad.show();
     }
 
     @Override
